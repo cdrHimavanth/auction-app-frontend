@@ -1,0 +1,25 @@
+<div class="container-fluid total-back">
+        <form class="col-4 card-back text-center"  [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit(loginForm.value)">
+            <h1 class="heading mb-3">Auction-System</h1>
+            <mat-form-field class="example-full-width"  appearance="fill">
+                <mat-label class="for-label">Username</mat-label>
+                <input (change)="changeMessage()" matInput placeholder="Enter your username" formControlName="customerName">
+                <mat-error *ngIf="loginForm.controls['customerName'].hasError('required')">
+                  Username is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width"  appearance="fill">
+              <mat-label class="for-label">Password</mat-label>
+              <input (change)="changeMessage()" matInput placeholder="Enter your username" formControlName="customerPassword">
+              <mat-error *ngIf="loginForm.controls['customerPassword'].hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+          </mat-form-field>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" [disabled]="loginForm.controls['customerName'].invalid || loginForm.controls['customerPassword'].invalid" type="submit">Login</button>
+          </mat-card-actions>
+          <mat-error>
+            {{message}}
+          </mat-error>
+        </form>
+</div>
