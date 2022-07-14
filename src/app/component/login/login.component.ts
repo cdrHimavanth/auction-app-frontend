@@ -13,12 +13,9 @@ import { LoginServiceService } from 'src/app/services/login-service.service';
 export class LoginComponent implements OnInit {
   public message:string ="";
   constructor(private router: Router,private fb: FormBuilder,private loginService:LoginServiceService,private cookieService:CookieService) { }
-  public user:any;
   ngOnInit(): void {
     //this.cookieService.delete("userDetails")
     if(this.cookieService.get("userDetails")){
-      this.user=JSON.parse(this.cookieService.get("userDetails")) ;
-      console.log(this.user);
       this.router.navigateByUrl('/home');
     }
   }

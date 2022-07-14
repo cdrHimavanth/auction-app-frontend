@@ -25,6 +25,7 @@ import { MatListModule } from '@angular/material/list';
 import { NgAddressComponent } from './component/ng-address/ng-address.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { SignupComponent } from './component/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CookieService } from 'ngx-cookie-service';
     SidebarComponent,
     AddressFormComponent,
     NgNavbarComponent,
-    NgAddressComponent
+    NgAddressComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
