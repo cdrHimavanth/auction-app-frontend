@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
+import { NgNavbarComponent } from './component/ng-navbar/ng-navbar.component';
+import { ProfileComponent } from './component/profile/profile.component';
 import { SignupComponent } from './component/signup/signup.component';
 
 const routes: Routes = [
@@ -12,10 +13,13 @@ const routes: Routes = [
     path:'login',component:LoginComponent
   },
   {
-    path:'home',component:HomeComponent
+    path:'home',component:NgNavbarComponent
   },
   {
     path:'signup',component:SignupComponent
+  },
+  {
+    path:'profile',component:ProfileComponent
   },
 
 ];

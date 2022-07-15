@@ -1,27 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
+import { Component } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-  public user : any;
-  constructor(private cookieService:CookieService,private router:Router) { }
+export class HomeComponent {
 
-  ngOnInit(): void {
-    if(this.cookieService.get("userDetails")){
-      this.user=JSON.parse(this.cookieService.get("userDetails")) ;
-      console.log(this.user);
-    }else{
-      this.router.navigateByUrl('/login');
-    }
-  }
-  logout(){
-    this.cookieService.delete("userDetails");
-    this.router.navigateByUrl('/login');
-  }
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
+
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
 }

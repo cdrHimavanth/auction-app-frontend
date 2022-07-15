@@ -26,10 +26,23 @@
     </mat-toolbar>
     <!-- Add Content Here -->
     <div class="body">
-          <h1>Others items</h1>
+          <h2>My Profile</h2>
+          <div>
+            <p>Userame : {{user.customerName}}</p>
+            <p>Mail : {{user.customerMail}}</p>
+          </div>
+          <hr color="goldenrod" class="mt-5">
+          <h2>Wallet</h2>
+          
+          <div>
+            <p>Balance : {{user.wallet.walletBalance}}</p>
+          </div>
+          <hr color="goldenrod" class="mt-5">
+          <h2>My items</h2>
+          
           <div class="card-container">
-            <item-card class="item-card" [item]="item" *ngFor="let item of items"></item-card>
-        </div>
+              <item-card class="item-card" [item]="item" *ngFor="let item of myItems"></item-card>
+          </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

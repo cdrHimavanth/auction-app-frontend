@@ -6,3 +6,15 @@ export class LoginObject{
 
     }
 }
+export class SignupObject{
+    constructor(
+        customerName:string,
+    customerPassword:string,
+    customerMail:string
+    ){
+
+    }
+}
+// export class ItemObject{
+
+// }

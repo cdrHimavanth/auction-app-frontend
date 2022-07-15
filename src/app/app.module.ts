@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
-import { HomeComponent } from './component/home/home.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,18 +25,23 @@ import { NgAddressComponent } from './component/ng-address/ng-address.component'
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { SignupComponent } from './component/signup/signup.component';
+import { HomeComponent } from './component/home/home.component';
+import { ProfileComponent } from './component/profile/profile.component';
+import { ItemCardComponent } from './component/item-card/item-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
     NavbarComponent,
     SidebarComponent,
     AddressFormComponent,
     NgNavbarComponent,
     NgAddressComponent,
-    SignupComponent
+    SignupComponent,
+    HomeComponent,
+    ProfileComponent,
+    ItemCardComponent
   ],
   imports: [
     BrowserModule,
