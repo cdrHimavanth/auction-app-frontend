@@ -49,13 +49,13 @@
 }
 .item-card{
   background-color: black;
-  width: 20%;
   color: white;
   padding: 10px;
   border-radius: 10px;
   border-style: solid;
   border-color: goldenrod;
   border-width: 1px;
+  width: 20%;
 }
 p{
   text-decoration: underline;
@@ -64,4 +64,17 @@ p{
 .app-title{
   color: goldenrod;
   text-decoration: none;
+}
+.log-button{
+  color: goldenrod;
+  background-color: black;
+  border-style: solid;
+  border-color: goldenrod;
+  margin: 10px;
+  border-width: 1px;
+}
+.highlight{
+  text-decoration: underline;
+  text-decoration-color: goldenrod;
+  text-shadow: 3px goldenrod;
 }

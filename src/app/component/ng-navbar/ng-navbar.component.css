@@ -61,3 +61,16 @@
   color: goldenrod;
   text-decoration: none;
 }
+.log-button{
+  color: goldenrod;
+  background-color: black;
+  border-style: solid;
+  border-color: goldenrod;
+  margin: 10px;
+  border-width: 1px;
+}
+.highlight{
+  text-decoration: underline;
+  text-decoration-color: goldenrod;
+  text-shadow: 3px goldenrod;
+}

@@ -18,3 +18,8 @@ export class SignupObject{
 // export class ItemObject{
 
 // }
+export class BidObject{
+    constructor(
+        bidAmount:number
+    ){}
+}

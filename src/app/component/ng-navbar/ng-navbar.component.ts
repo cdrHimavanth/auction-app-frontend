@@ -25,7 +25,6 @@ export class NgNavbarComponent {
 
   ngOnInit(): void {
     this.user=this.authService.authenticateFromCookie();
-    this.assignMyItems();
     this.assignOthersItems();
   }
   assignMyItems(){
