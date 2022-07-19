@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { LoginObject } from 'src/app/objects-exporter';
+import { Customer, LoginObject } from 'src/app/objects-exporter';
 import { LoginServiceService } from 'src/app/services/login-service.service';
 
 @Component({
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     this.message="";
   }
   onSubmit(loginObject:LoginObject){
-    this.loginService?.authenticate(loginObject).subscribe((response:any)=>{
+    this.loginService?.authenticate(loginObject).subscribe((response:Customer)=>{
       this.cookieService.set("userDetails",JSON.stringify(response));
       this.router.navigateByUrl('/home');
     },

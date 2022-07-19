@@ -6,12 +6,10 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class AuthServiceService {
-
   constructor(private cookieService:CookieService,private router:Router) { }
-
-  authenticateFromCookie(){
+  authenticateFromCookie():any{
     if(this.cookieService.get("userDetails")){
-      return JSON.parse(this.cookieService.get("userDetails")) ;
+        return JSON.parse(this.cookieService.get("userDetails"));
     }else{
       this.router.navigateByUrl('/login');
     }

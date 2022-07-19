@@ -3,15 +3,13 @@
     font-size: small;
     font-family: 'Times New Roman', Times, serif;
 }
-.log-button{
+.bid-button{
     color: goldenrod;
     background-color: black;
     border-style: solid;
     border-radius: 10px;
     padding: 5px;
-    padding-left: 30px;
-    padding-right: 30px;
-    font-size: smaller;
+    font-size: 1.2vw;
     border-color: goldenrod;
     border-width: 1px;
   }

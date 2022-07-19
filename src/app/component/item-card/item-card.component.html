@@ -2,10 +2,11 @@
     <!-- <p>{{item | json}}</p> -->
         <p>Name : {{item.itemName}}</p>
         <p>Start price : {{item.itemStartPrice}}</p>
-        <div *ngIf="showMessage">
+        <div >
             <p class="err-message" >{{message}}</p>
             <p class="err-message" *ngIf="bidsFound">Bidder : {{highestBid.bidder.customerName}}</p>
-            <button  class="log-button" >Bid</button>
+            <button (click)="bidIt()" [class.d-none]="item.owner.customerId===user.customerId" class="bid-button" >Bid It for {{amountToBeBiddedFor}} /-</button>
+            <p *ngIf="isFailed">{{errMessage}}</p>
         </div>
         
   </div>

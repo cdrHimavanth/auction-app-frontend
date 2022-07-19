@@ -12,6 +12,7 @@ export class ItemCardComponent implements OnInit {
   public message :string ="";
   constructor(private bidService:BidServiceService) { }
   public highestBid:any;
+  public amountToBeBiddedFor:number = 0;
   ngOnInit(): void {
     this.getHighestBid();
   }
@@ -19,9 +20,11 @@ export class ItemCardComponent implements OnInit {
     this.bidService.highestBidOfItem(this.item.itemId).subscribe((response)=>{
       this.highestBid=response;
       this.message="Current bid :" +this.highestBid.bidAmount;
+      this.amountToBeBiddedFor = (this.highestBid.bidAmount+((this.item.itemStartPrice)/10));
       this.bidsFound=true;
     },(error)=>{
       this.bidsFound=false;
+      this.amountToBeBiddedFor = this.item.itemStartPrice+( (this.item.itemStartPrice)/10);
       this.message=error.error.errorMessage;
     })
   }
@@ -32,5 +35,20 @@ export class ItemCardComponent implements OnInit {
   }
   mouseLeft(){
     this.showMessage=false;
+  }
+  public errMessage="";
+  public isFailed=false;
+  
+  bidIt(){
+    this.bidService.bidForItem(this.user.customerName,this.item.itemId,this.amountToBeBiddedFor).subscribe((response)=>{
+      console.log(response);
+    },(error)=>{
+      this.errMessage=error.error.errorMessage;
+      this.isFailed=true;
+      setTimeout(this.resetMessage,5000);
+    })
+  }
+  resetMessage(){
+    this.errMessage="";
   }
 }

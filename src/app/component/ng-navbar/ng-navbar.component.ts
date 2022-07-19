@@ -6,6 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { ItemsServiceService } from 'src/app/services/items-service.service';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { Customer, Item } from 'src/app/objects-exporter';
 
 @Component({
   selector: 'app-ng-navbar',
@@ -20,15 +21,17 @@ export class NgNavbarComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver,private cookieService:CookieService,private router:Router, private itemService: ItemsServiceService,private authService:AuthServiceService) {}
-  public user : any;
+  constructor(private breakpointObserver: BreakpointObserver,private cookieService:CookieService,private router:Router, private itemService: ItemsServiceService,private authService:AuthServiceService) {
+    this.user=this.authService.authenticateFromCookie();
+  }
+  public user : Customer;
 
   ngOnInit(): void {
-    this.user=this.authService.authenticateFromCookie();
+    
     this.assignOthersItems();
   }
   assignMyItems(){
-    this.myItems = this.itemService.getMyItems(this.user.customerName).subscribe((response)=>{
+      this.itemService.getMyItems(this.user.customerName).subscribe((response)=>{
       console.log(response);
       this.myItems=response;
     },(error)=>{
@@ -36,15 +39,15 @@ export class NgNavbarComponent {
     })
   }
   assignOthersItems(){
-    this.items = this.itemService.getItemsOfOthers(this.user.customerId).subscribe((response)=>{
+      this.itemService.getItemsOfOthers(this.user.customerId).subscribe((response)=>{
       console.log(response);
       this.items=response;
     },(error)=>{
       console.log(error.error);
     })
   }
-  items : any;
-  myItems : any;
+  items : Item[]=[];
+  myItems : Item[]=[];
   logout(){
     this.cookieService.delete("userDetails");
     this.router.navigateByUrl('/login');

@@ -24,20 +24,52 @@
   background-color: black;
   color: goldenrod;
   font-weight: 500;
-  font-size: xx-large;
+  font-size: 3vw;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .nav-items{
   color: goldenrod;
 }
 .body{
-  background-image: radial-gradient(gray,black);
+  background-image: radial-gradient(rgb(57, 57, 57),black);
   height: 91.25%;
   color: goldenrod;
   padding: 20px;
-  
-
+  -webkit-text-stroke: .25px black;
 }
+@media only screen and (width< 250px){
+  p{
+    font-size: 1rem;
+  }
+}
+@media only screen and (width< 300px){
+  p{
+    font-size: 10px;
+  }
+}
+
+@media only screen and (width< 600px){
+  p{
+    font-size: 16px;
+  }
+}
+@media only screen and (width<= 768px){
+  p{
+    font-size: 18px;
+  }
+}
+@media only screen and (width>768px){
+  p{
+    font-size: 20px;
+  }
+}
+.icon{
+  width: 6vw;
+  max-width: 80px;
+  min-width: 40px;
+  color: goldenrod;
+}
+
 .card-container{
   display: flex;
   flex-direction: row;
@@ -57,10 +89,6 @@
   border-width: 1px;
   width: 20%;
 }
-p{
-  text-decoration: underline;
-  text-decoration-color:goldenrod ;
-}
 .app-title{
   color: goldenrod;
   text-decoration: none;
@@ -77,4 +105,10 @@ p{
   text-decoration: underline;
   text-decoration-color: goldenrod;
   text-shadow: 3px goldenrod;
+}
+.profile{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: flex-end;
 }

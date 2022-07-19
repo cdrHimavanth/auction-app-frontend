@@ -14,7 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgNavbarComponent } from './component/ng-navbar/ng-navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -54,6 +54,7 @@ import { ItemCardComponent } from './component/item-card/item-card.component';
     MatRadioModule,
     MatCardModule,
     ReactiveFormsModule,
+    FormsModule,
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,

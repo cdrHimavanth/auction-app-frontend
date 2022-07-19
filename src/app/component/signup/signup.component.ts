@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { LoginObject, SignupObject } from 'src/app/objects-exporter';
+import { Customer, LoginObject, SignupObject } from 'src/app/objects-exporter';
 import { LoginServiceService } from 'src/app/services/login-service.service';
 import { SignupServiceService } from 'src/app/services/signup-service.service';
 
@@ -29,8 +29,8 @@ export class SignupComponent implements OnInit {
   changeMessage(){
     this.message="";
   }
-  onSubmit(signupObject:SignupObject){
-    this.signupService?.signUpUser(signupObject).subscribe((response:any)=>{
+  onSubmit(){
+    this.signupService?.signUpUser(this.signupForm.value).subscribe((response:Customer)=>{
       this.cookieService.set("userDetails",JSON.stringify(response));
       this.router.navigateByUrl('/home');
     },

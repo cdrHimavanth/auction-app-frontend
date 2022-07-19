@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SignupObject } from '../objects-exporter';
+import { Customer, SignupObject } from '../objects-exporter';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class SignupServiceService {
   constructor(private httpClient: HttpClient) { 
     
   }
-  signUpUser(signupObject:SignupObject):Observable<any>{
-    return this.httpClient.post<any>(this.commonUrl+"/customer/create",signupObject);
+  signUpUser(signupObject:SignupObject):Observable<Customer>{
+    return this.httpClient.post<Customer>(this.commonUrl+"/customer/create",signupObject);
   }
 }
