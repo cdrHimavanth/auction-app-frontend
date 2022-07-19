@@ -31,35 +31,24 @@
   color: goldenrod;
 }
 .body{
-  background-image: radial-gradient(gray,black);
-  height: 91.25%;
+  background-image: radial-gradient(rgb(57, 57, 57),black);
+  min-height: 92vh;
   color: goldenrod;
   padding: 20px;
-  
-
 }
 .card-container{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: flex-start;
   overflow-y: auto;
   gap: 20px;
 }
-.item-card{
-  background-color: black;
-  width: 20%;
-  color: white;
-  padding: 10px;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: goldenrod;
-  border-width: 1px;
-}
+
 .app-title{
   color: goldenrod;
   text-decoration: none;
+  font-size: 22px;
 }
 .log-button{
   color: goldenrod;

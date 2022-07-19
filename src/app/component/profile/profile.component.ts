@@ -24,8 +24,14 @@ export class ProfileComponent {
 
     constructor(private walletService:WalletServiceService,private breakpointObserver: BreakpointObserver,private cookieService:CookieService,private router:Router, private itemService: ItemsServiceService,private authService:AuthServiceService) {
       this.user=this.authService.authenticateFromCookie();
+      this.walletDetails=this.walletService.getWalletDetails(this.user.customerName).subscribe((respone)=>{
+        this.walletDetails=respone;
+      },(error)=>{
+        console.log(error);
+      })
     }
     public user : Customer;
+    public walletDetails:any;
   
     ngOnInit(): void {
       
@@ -35,7 +41,7 @@ export class ProfileComponent {
         this.itemService.getMyItems(this.user.customerName).subscribe((response)=>{
         this.myItems=response;
       },(error)=>{
-        console.log(error.error);
+        //console.log(error.error);
       })
     }
     public balance :any;
@@ -44,9 +50,9 @@ export class ProfileComponent {
       this.cookieService.delete("userDetails");
       this.router.navigateByUrl('/login');
     }
-    public disableAddBalance=true;
+    disableAddBalance:boolean =true;
     inpChanged(){
-      if(this.balance===undefined){
+      if(this.balance===undefined || this.balance == null){
         this.disableAddBalance=true;
       }else if(this.balance==0){
         this.disableAddBalance=true;
@@ -56,11 +62,16 @@ export class ProfileComponent {
     }
     addBalance(){
       this.walletService.rechargeWallet(this.user.customerName,this.user.customerPassword,this.balance).subscribe((response)=>{
-        console.log(response)
+        // window.location.reload()
+        this.walletDetails.availableBalance= this.balance+this.walletDetails.availableBalance;
+        this.walletDetails.walletBalance= response.walletBalance;
+        this.balance=0;
+        this.disableAddBalance=true;
       },(error)=>{
-        console.log(error);
+        alert(error.error.errorMessage);
       })
-      this.balance=0;
+      
     }
+    changeIt(val:number){}
 
 }

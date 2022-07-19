@@ -2,6 +2,7 @@
     color: goldenrod;
     font-size: small;
     font-family: 'Times New Roman', Times, serif;
+
 }
 .bid-button{
     color: goldenrod;
@@ -9,7 +10,27 @@
     border-style: solid;
     border-radius: 10px;
     padding: 5px;
-    font-size: 1.2vw;
+    font-size: 12px;
     border-color: goldenrod;
     border-width: 1px;
   }
+  .card-component{
+    background-color: black;
+    width:150px;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: goldenrod;
+    border-width: 1px;
+    height: 150px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+@media screen and (width>=768px){
+    .card-component{
+        width: 150px;
+    }
+}

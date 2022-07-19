@@ -1,11 +1,12 @@
-<div (mouseover)="mouseEntered()" (mouseout)="mouseLeft()" >
+<div class="card-component" >
     <!-- <p>{{item | json}}</p> -->
-        <p>Name : {{item.itemName}}</p>
-        <p>Start price : {{item.itemStartPrice}}</p>
+        <p>{{item.itemName}}</p>
+        <p class="err-message">Starts at {{item.itemStartPrice}}/- only</p>
         <div >
-            <p class="err-message" >{{message}}</p>
+            <p class="err-message" *ngIf="!bidsFound" >No bids found</p>
             <p class="err-message" *ngIf="bidsFound">Bidder : {{highestBid.bidder.customerName}}</p>
             <button (click)="bidIt()" [class.d-none]="item.owner.customerId===user.customerId" class="bid-button" >Bid It for {{amountToBeBiddedFor}} /-</button>
+            <button (click)="acceptBid()" *ngIf="item.owner.customerId===user.customerId && bidsFound" class="bid-button" >Accept</button>
             <p *ngIf="isFailed">{{errMessage}}</p>
         </div>
         

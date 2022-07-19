@@ -32,66 +32,57 @@
 }
 .body{
   background-image: radial-gradient(rgb(57, 57, 57),black);
-  height: 91.25%;
   color: goldenrod;
   padding: 20px;
-  -webkit-text-stroke: .25px black;
+  min-height: 92vh;
 }
-@media only screen and (width< 250px){
-  p{
-    font-size: 1rem;
-  }
-}
-@media only screen and (width< 300px){
-  p{
-    font-size: 10px;
-  }
-}
-
-@media only screen and (width< 600px){
-  p{
-    font-size: 16px;
-  }
-}
-@media only screen and (width<= 768px){
-  p{
-    font-size: 18px;
-  }
-}
-@media only screen and (width>768px){
-  p{
-    font-size: 20px;
-  }
-}
-.icon{
-  width: 6vw;
-  max-width: 80px;
-  min-width: 40px;
-  color: goldenrod;
-}
-
 .card-container{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
   overflow-y: auto;
+  align-items: flex-start;
   gap: 20px;
 }
-.item-card{
-  background-color: black;
-  color: white;
-  padding: 10px;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: goldenrod;
-  border-width: 1px;
-  width: 20%;
+.my-items{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
 }
+.add-bal{
+  color: gray;
+  background-color: transparent;
+  border: solid  black 0.25px;
+  border-radius: 3px;
+}
+@media only screen and (max-width: 299px){
+  .p{
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 300px){
+  .p{
+    font-size: 14px;
+  }
+}
+@media only screen and (min-width: 768px ){
+  .p{
+    font-size: 16px;
+  }
+}
+.icon{
+  width: 6vw;
+  max-width: 60px;
+  min-width: 50px;
+  color: goldenrod;
+}
+
+
 .app-title{
   color: goldenrod;
   text-decoration: none;
+  font-size: 22px;
 }
 .log-button{
   color: goldenrod;
@@ -100,6 +91,17 @@
   border-color: goldenrod;
   margin: 10px;
   border-width: 1px;
+}
+.create-button{
+  width: 60px;
+  color: goldenrod;
+  background-color: black;
+  border-style: solid;
+  border-color: goldenrod;
+  border-width: 1px;
+  font-size: 12px;
+height: 30px;
+  border-radius: 8px;
 }
 .highlight{
   text-decoration: underline;
@@ -110,5 +112,5 @@
   display: flex;
   flex-direction: row;
   gap: 30px;
-  align-items: flex-end;
+  align-items:center;
 }

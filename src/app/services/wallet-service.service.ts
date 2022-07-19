@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Wallet } from '../objects-exporter';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,11 @@ export class WalletServiceService {
  
   constructor(private httpClient: HttpClient) { }
 
-  rechargeWallet(username:string,pass:string,amount:number){
-    return this.httpClient.put(this.commonUrl+"/recharge/"+amount+"/tocustomer/"+username,{"Authorization":pass},{});
+  rechargeWallet(username:string,pass:string,amount:number):Observable<Wallet>{
+    return this.httpClient.put<Wallet>(this.commonUrl+"/recharge/"+amount+"/tocustomer/"+username,{"Authorization":pass},{});
+  }
+  // details/ofcustomer/{name}
+  getWalletDetails(username:string){
+    return this.httpClient.get(this.commonUrl+"/details/ofcustomer/"+username);
   }
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { BidServiceService } from 'src/app/services/bid-service.service';
+import { CustomerServiceService } from 'src/app/services/customer-service.service';
 
 @Component({
   selector: 'item-card',
@@ -10,7 +11,7 @@ export class ItemCardComponent implements OnInit {
   @Input('item') public item : any;
   @Input('user') public user : any;
   public message :string ="";
-  constructor(private bidService:BidServiceService) { }
+  constructor(private customerService:CustomerServiceService,private bidService:BidServiceService) { }
   public highestBid:any;
   public amountToBeBiddedFor:number = 0;
   ngOnInit(): void {
@@ -30,18 +31,13 @@ export class ItemCardComponent implements OnInit {
   }
   public bidsFound=false;
   public showMessage=false;
-  mouseEntered(){
-    this.showMessage=true;
-  }
-  mouseLeft(){
-    this.showMessage=false;
-  }
   public errMessage="";
   public isFailed=false;
   
   bidIt(){
     this.bidService.bidForItem(this.user.customerName,this.item.itemId,this.amountToBeBiddedFor).subscribe((response)=>{
       console.log(response);
+      window.location.reload()
     },(error)=>{
       this.errMessage=error.error.errorMessage;
       this.isFailed=true;
@@ -50,5 +46,12 @@ export class ItemCardComponent implements OnInit {
   }
   resetMessage(){
     this.errMessage="";
+  }
+  acceptBid(){
+    this.customerService.acceptBid(this.user.customerName,this.item.itemId,this.user.customerPassword).subscribe((res)=>{
+      window.location.reload()
+    },(err)=>{
+      window.location.reload()
+    })
   }
 }
