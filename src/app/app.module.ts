@@ -8,7 +8,6 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
-import { AddressFormComponent } from './component/address-form/address-form.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
@@ -28,6 +27,8 @@ import { SignupComponent } from './component/signup/signup.component';
 import { HomeComponent } from './component/home/home.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { ItemCardComponent } from './component/item-card/item-card.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CreateItemComponent } from './component/create-item/create-item.component';
 
 @NgModule({
   declarations: [
@@ -35,13 +36,13 @@ import { ItemCardComponent } from './component/item-card/item-card.component';
     LoginComponent,
     NavbarComponent,
     SidebarComponent,
-    AddressFormComponent,
     NgNavbarComponent,
     NgAddressComponent,
     SignupComponent,
     HomeComponent,
     ProfileComponent,
-    ItemCardComponent
+    ItemCardComponent,
+    CreateItemComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +61,8 @@ import { ItemCardComponent } from './component/item-card/item-card.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

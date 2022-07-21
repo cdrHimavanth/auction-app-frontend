@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import {MatDialog} from '@angular/material/dialog'
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
@@ -8,7 +9,10 @@ import { ItemsServiceService } from 'src/app/services/items-service.service';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { Customer, Item } from 'src/app/objects-exporter';
 import { WalletServiceService } from 'src/app/services/wallet-service.service';
-
+import { CreateItemComponent } from '../create-item/create-item.component';
+export interface Edokati{
+  data2:any;
+}
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -22,7 +26,7 @@ export class ProfileComponent {
       shareReplay()
     );
 
-    constructor(private walletService:WalletServiceService,private breakpointObserver: BreakpointObserver,private cookieService:CookieService,private router:Router, private itemService: ItemsServiceService,private authService:AuthServiceService) {
+    constructor(public dialog: MatDialog,private walletService:WalletServiceService,private breakpointObserver: BreakpointObserver,private cookieService:CookieService,private router:Router, private itemService: ItemsServiceService,private authService:AuthServiceService) {
       this.user=this.authService.authenticateFromCookie();
       this.walletDetails=this.walletService.getWalletDetails(this.user.customerName).subscribe((respone)=>{
         this.walletDetails=respone;
@@ -73,5 +77,19 @@ export class ProfileComponent {
       
     }
     changeIt(val:number){}
-
-}
+    openDialog() {
+      const dialogRef = this.dialog.open(CreateItemComponent,{
+        width:"40%",
+        height:"40%",
+        minHeight:"250px",
+        maxHeight:"500px",
+        minWidth:"250px",
+        maxWidth:"400px",
+        data: {data2: this.user.customerName}
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    }
+  }

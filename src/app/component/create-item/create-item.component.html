@@ -1,0 +1,21 @@
+<div class="create-item">
+    <h3>Item details</h3>
+    <form class=""  [formGroup]="itemForm" novalidate (ngSubmit)="onSubmit()">
+        <mat-form-field   appearance="fill">
+            <mat-label class="for-label">Item name</mat-label>
+            <input class="inp-ele" matInput placeholder="Name your item" formControlName="itemName">
+            <mat-error class="err-msg" *ngIf="itemForm.controls['itemName'].hasError('required')">
+              Item name <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field   appearance="fill">
+            <mat-label class="for-label">Start price</mat-label>
+            <input class="inp-ele" matInput type="number" placeholder="Price your item" formControlName="itemStartPrice">
+            <mat-error class="err-msg" *ngIf="itemForm.controls['itemStartPrice'].hasError('required')">
+              Price <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button class="create-button" [disabled]="itemForm.controls['itemName'].invalid || itemForm.controls['itemStartPrice'].invalid" type="submit">Add</button>
+    </form>
+</div>

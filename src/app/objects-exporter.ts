@@ -23,6 +23,12 @@ export class BidObject{
         public bidAmount:number
     ){}
 }
+export class ItemDto{
+    constructor(
+        public itemName:string,
+        public itemStartPrice:number
+    ){}
+}
 export class Item{
     constructor(
         public itemId:number,

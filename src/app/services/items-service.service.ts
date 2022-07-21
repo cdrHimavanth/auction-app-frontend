@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Item } from '../objects-exporter';
+import { Item, ItemDto } from '../objects-exporter';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +20,8 @@ export class ItemsServiceService {
   }
   getMyItems(name:string):Observable<Item[]>{
     return this.httpClient.get<Item[]>(this.commonUrl+"/getby/owner/"+name);
+  }
+  createItem(name:string,body:any):Observable<Item>{
+    return this.httpClient.post<Item>((this.commonUrl+"/additem/owner/"+name),body);
   }
 }
