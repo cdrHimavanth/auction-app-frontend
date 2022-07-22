@@ -9,7 +9,7 @@
             <p class="err-message" *ngIf="item.owner.customerId===user.customerId && bidsFound">Current :{{highestBid.bidAmount}}/-</p>
             <button (click)="bidIt()" [class.d-none]="item.owner.customerId===user.customerId" class="bid-button" >Bid It for {{amountToBeBiddedFor}} /-</button>
             <button (click)="acceptBid()" *ngIf="item.owner.customerId===user.customerId && bidsFound" class="bid-button" >Accept</button>
-            <p class="fail-message" *ngIf="isFailed">{{errMessage}}</p>
+            <p class="fail-message" *ngIf="isFailed">Not enough balance</p>
         </div>
         </div>
   </div>
