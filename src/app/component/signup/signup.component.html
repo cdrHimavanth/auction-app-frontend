@@ -3,21 +3,21 @@
         <h1 class="heading mb-3">Auction-System</h1>
         <mat-form-field class="example-full-width"  appearance="fill">
             <mat-label class="for-label">Username</mat-label>
-            <input (change)="changeMessage()" matInput placeholder="Enter your username" formControlName="customerName">
+            <input class="inputs" (change)="changeMessage()" matInput placeholder="Enter your username" formControlName="customerName">
             <mat-error *ngIf="signupForm.controls['customerName'].hasError('required')">
               Username is <strong>required</strong>
             </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width"  appearance="fill">
             <mat-label class="for-label">Email</mat-label>
-            <input (change)="changeMessage()" matInput placeholder="Enter your email address" formControlName="customerMail">
+            <input class="inputs" (change)="changeMessage()" matInput placeholder="Enter your email address" formControlName="customerMail">
             <mat-error *ngIf="signupForm.controls['customerMail'].hasError('required')">
               Email is <strong>required</strong>
             </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width"  appearance="fill">
           <mat-label class="for-label">Password</mat-label>
-          <input (change)="changeMessage()" matInput placeholder="Enter your username" formControlName="customerPassword">
+          <input class="inputs" (change)="changeMessage()" matInput placeholder="Enter your username" formControlName="customerPassword">
           <mat-error *ngIf="signupForm.controls['customerPassword'].hasError('required')">
             Password is <strong>required</strong>
           </mat-error>
@@ -26,8 +26,8 @@
           </mat-error>
       </mat-form-field>
       <mat-card-actions>
-        <button mat-raised-button color="primary" [disabled]="signupForm.controls['customerName'].invalid || signupForm.controls['customerPassword'].invalid" type="submit">Signup</button>
-        <p class="for-signup">Already have an account?  <a href="login">Login</a> </p>
+        <button mat-raised-button class="log-button" [disabled]="signupForm.controls['customerName'].invalid || signupForm.controls['customerPassword'].invalid" type="submit">Signup</button>
+        <p class="for-signup">Already have an account?  <a class="for-signup" href="login"><strong>Login</strong></a> </p>
       </mat-card-actions>
       <mat-error>
         {{message}}

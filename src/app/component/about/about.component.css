@@ -1,0 +1,68 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  background-color: black;
+  border-color: goldenrod;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.navbar{
+  /* -webkit-text-stroke: .5px white; */
+  background-color: black;
+  color: goldenrod;
+  font-weight: 500;
+  font-size: 3vw;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.nav-items{
+  color: goldenrod;
+}
+.body{
+  background-image: radial-gradient(rgb(57, 57, 57),black);
+  min-height: 92vh;
+  color: goldenrod;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.card-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  overflow-y: auto;
+  gap: 20px;
+}
+
+.app-title{
+  color: goldenrod;
+  text-decoration: none;
+  font-size: 22px;
+}
+.log-button{
+  color: goldenrod;
+  background-color: black;
+  border-style: solid;
+  border-color: goldenrod;
+  margin: 10px;
+  border-width: 1px;
+}
+.highlight{
+  text-decoration: underline;
+  text-decoration-color: goldenrod;
+  text-shadow: 3px goldenrod;
+}

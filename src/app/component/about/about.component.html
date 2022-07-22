@@ -1,0 +1,55 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav " fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="nav-items">Menu</mat-toolbar>
+    <mat-nav-list >
+      <a mat-list-item class="nav-items " href="home">Home</a>
+      <a mat-list-item class="nav-items" href="profile">Profile</a>
+      <a mat-list-item class="nav-items highlight" href="about">About</a>
+      <button mat-raised-button  class="log-button" (click)="logout()">Logout</button>
+    </mat-nav-list>
+    
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="navbar">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span><a href="home" class="app-title">Auction-system</a></span>
+      
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div class="body">
+          <p>Dear <strong>{{user.customerName}}</strong> ,</p> <br> 
+          <pre>       We are really thankful to you for trusting and joining our community,
+so , as a part of our community you will be receiving frequent mails to your email-id {{user.customerMail}}.
+Please feel free to let us know any thing that you feel is necessary.
+We will always allow constructive criticism and feed back from our deemed customers 
+
+Thank you as always,
+<strong>Auction-app</strong> team</pre>
+            <br><br>
+            <h2>Now we will go and look at the rules how the app is going to work</h2>
+            <pre>       Here you can easily put your items for auction and other customers will bid for it ,
+If you are satisfied with the current bid price for the item you can accept it's bid and money will
+automatically be transferred to your wallet and if are interested in the items of the other customer's 
+items you can also bid for those items,
+ 
+Only restriction is that you have to have unused balance enogh for the bid,
+in this case un used balance may be termed as the amount left in your wallet afer the amount the highest bids 
+of items which you have bidded are bidded by other people like some other customer has to bid for the same item as 
+you afer you bidded for your balance to be usable for other bids.
+If you are unsure of how it will proceed please contact us!
+  
+Thanks for your time!
+            </pre>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

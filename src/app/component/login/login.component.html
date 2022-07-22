@@ -3,21 +3,21 @@
             <h1 class="heading mb-3">Auction-System</h1>
             <mat-form-field class="example-full-width"  appearance="fill">
                 <mat-label class="for-label">Username</mat-label>
-                <input (change)="changeMessage()" matInput placeholder="Enter your username" formControlName="customerName">
+                <input class="inputs" (change)="changeMessage()" matInput placeholder="Enter your username" formControlName="customerName">
                 <mat-error *ngIf="loginForm.controls['customerName'].hasError('required')">
                   Username is <strong>required</strong>
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width"  appearance="fill">
               <mat-label class="for-label">Password</mat-label>
-              <input (change)="changeMessage()" matInput placeholder="Enter your username" formControlName="customerPassword">
+              <input class="inputs" (change)="changeMessage()" matInput placeholder="Enter your username" formControlName="customerPassword">
               <mat-error *ngIf="loginForm.controls['customerPassword'].hasError('required')">
                 Password is <strong>required</strong>
               </mat-error>
           </mat-form-field>
           <mat-card-actions>
-            <button mat-raised-button color="primary" [disabled]="loginForm.controls['customerName'].invalid || loginForm.controls['customerPassword'].invalid" type="submit">Login</button>
-            <p class="for-signup">Don't have an account?  <a href="signup">Sign Up</a> </p>
+            <button mat-raised-button class="log-button"  [disabled]="loginForm.controls['customerName'].invalid || loginForm.controls['customerPassword'].invalid" type="submit">Login</button>
+            <p class="for-signup">Don't have an account?  <a class="for-signup" href="signup"><strong>Sign Up</strong> </a> </p>
           </mat-card-actions>
           <mat-error>
             {{message}}

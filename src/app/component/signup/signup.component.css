@@ -7,25 +7,44 @@
     align-items: center;
 }
 .card-back{
-    background-image: radial-gradient(#898989,#242424 );
+    background-image: radial-gradient(hsl(0, 0%, 23%),#242424 );
     padding: 3%;
     border-radius:5%;
+    border: solid goldenrod .5px;
 }
 .example-full-width {
     width: 100%;
 }
 .for-label{
-    color: black;
+    color: goldenrod;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
 .heading{
-    -webkit-text-stroke: 1px black;
-    color: royalblue;
+    color: goldenrod;
     font-weight: 500;
     font-family: Arial, Helvetica, sans-serif;
 }
 .for-signup{
     font-size: small;
     color: black;
+}
+.log-button{
+    color: goldenrod;
+    background-color: black;
+    border-style: solid;
+    border-color: goldenrod;
+    margin: 10px;
+    border-width: 1px;
+  }
+  .inputs{
+    color: gray;
+    border-color: goldenrod;
+}
+mat-form-field{
+    border-color: black !important;
+}
+.for-signup{
+    font-size: small;
+    color: goldenrod;
 }

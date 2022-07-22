@@ -9,3 +9,6 @@ mat-dialog-container {
     border:solid rgb(67, 66, 66) .5px !important;
     border-radius: 15px !important;
   }
+  .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: goldenrod !important;
+  }
